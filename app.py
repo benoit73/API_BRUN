@@ -1,10 +1,12 @@
-from flask import Flask, jsonify
+from flask import Flask
+from flask_jsonrpc import JSONRPC
 
 app = Flask(__name__)
+jsonrpc = JSONRPC(app, "/api")
 
-@app.route("/")
-def home():
-    return jsonify({"message": "Hello, Docker!"})
+@jsonrpc.method("App.hello")
+def hello(name: str) -> str:
+    return f"Hello, {name}!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
