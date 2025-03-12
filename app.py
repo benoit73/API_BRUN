@@ -1,12 +1,16 @@
+import psycopg2
 from flask import Flask
 from flask_jsonrpc import JSONRPC
 
 app = Flask(__name__)
 jsonrpc = JSONRPC(app, "/api")
 
-@jsonrpc.method("App.hello")
-def hello(name: str) -> str:
-    return f"Hello, {name}!"
+DB_CONFIG = psycopg2.connect(
+    host="10.74.16.190",    
+    database="mydatabase",  
+    user="root",
+    password="root"
+)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
