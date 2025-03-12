@@ -6,7 +6,7 @@ app = Flask(__name__)
 jsonrpc = JSONRPC(app, "/api")
 
 DB_CONFIG = psycopg2.connect(
-    host="10.74.16.190",    
+    host="bdd",    
     database="mydatabase",  
     user="root",
     password="root"
