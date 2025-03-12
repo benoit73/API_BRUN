@@ -87,7 +87,7 @@ def add_egapro_data():
 # Route pour servir le fichier Swagger.yml (si vous ne voulez pas le stocker statiquement dans Flask)
 @app.route('/static/swagger.yml')
 def swagger_yml():
-    return send_from_directory(os.getcwd(), 'swagger.yml')
+    return send_from_directory(os.path.join(os.getcwd(), 'static'), 'swagger.yml')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
