@@ -3,7 +3,7 @@ from flask import Flask
 from flask_jsonrpc import JSONRPC
 
 app = Flask(__name__)
-jsonrpc = JSONRPC(app, "/")
+jsonrpc = JSONRPC(app, "/rpc/")
 
 DB_CONFIG = psycopg2.connect(
     host="bdd",
