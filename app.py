@@ -26,10 +26,10 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 # Configuration de la connexion à PostgreSQL
 def get_db_connection():
     conn = psycopg2.connect(
-        host='localhost',   # Le nom d'hôte de la base de données PostgreSQL
-        database='egapro',  # Nom de la base de données
-        user='your_user',   # Votre utilisateur PostgreSQL
-        password='your_password'  # Votre mot de passe PostgreSQL
+        host="10.74.16.190",    # Le nom d'hôte de la base de données PostgreSQL
+        database="mydatabase",  # Nom de la base de données
+        user="root",            # Nom d'utilisateur PostgreSQL
+        password="root"         # Mot de passe PostgreSQL
     )
     return conn
  
@@ -59,7 +59,7 @@ def get_egapro_data(siren):
     else:
         # Si aucun résultat trouvé, retourner une erreur 404
         conn.close()
-        return jsonify({'error': 'Données non trouvées pour ce SIREN'}), 404
+        return jsonify({'error': 'Donnees non trouvees pour ce SIREN'}), 404
 
 # Route pour ajouter des données dans la base de données PostgreSQL
 @app.route('/api/egapro', methods=['POST'])
