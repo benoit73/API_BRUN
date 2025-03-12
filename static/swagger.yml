@@ -1,0 +1,53 @@
+swagger: '2.0'
+info:
+  title: EgaPro API
+  description: API pour distribuer les données de l'Index EgaPro
+  version: "1.0.0"
+host: localhost:5000
+basePath: /
+schemes:
+  - http
+paths:
+  /api/egapro/{siren}:
+    get:
+      summary: Récupérer les données d'un SIREN
+      parameters:
+        - in: path
+          name: siren
+          required: true
+          type: string
+          description: Le SIREN de l'entreprise
+      responses:
+        200:
+          description: Données trouvées
+          schema:
+            type: object
+            properties:
+              siren:
+                type: string
+              data:
+                type: string
+        404:
+          description: Données non trouvées
+        400:
+          description: Paramètres invalides
+
+  /api/egapro:
+    post:
+      summary: Ajouter des données pour un SIREN
+      parameters:
+        - in: body
+          name: data
+          required: true
+          schema:
+            type: object
+            properties:
+              siren:
+                type: string
+              data:
+                type: string
+      responses:
+        201:
+          description: Données ajoutées avec succès
+        400:
+          description: Paramètres manquants ou invalides
