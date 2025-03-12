@@ -10,10 +10,10 @@ app = Flask(__name__)
 # Connexion à la base de données PostgreSQL
 def get_db_connection():
     conn = psycopg2.connect(
-        host="localhost",   # Le nom d'hôte de la base de données PostgreSQL
-        database="dbname",  # Nom de la base de données
-        user="username",    # Votre utilisateur PostgreSQL
-        password="password" # Votre mot de passe PostgreSQL
+        host="bdd",    # Le nom d'hôte de la base de données PostgreSQL
+        database="mydatabase",  # Nom de la base de données
+        user="root",            # Nom d'utilisateur PostgreSQL
+        password="root"         # Mot de passe PostgreSQL
     )
     return conn
 
