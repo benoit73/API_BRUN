@@ -26,7 +26,8 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 # Configuration de la connexion à PostgreSQL
 def get_db_connection():
     conn = psycopg2.connect(
-        host="10.74.16.190",    # Le nom d'hôte de la base de données PostgreSQL
+       #host="10.74.16.190",    # Le nom d'hôte de la base de données PostgreSQL
+        host="bdd",    # Le nom d'hôte de la base de données PostgreSQL
         database="mydatabase",  # Nom de la base de données
         user="root",            # Nom d'utilisateur PostgreSQL
         password="root"         # Mot de passe PostgreSQL
@@ -45,7 +46,7 @@ def get_egapro_data(siren):
     cursor = conn.cursor(cursor_factory=RealDictCursor)
 
     # Exécuter la requête pour récupérer les données du SIREN
-    cursor.execute('SELECT * FROM egapro_data WHERE siren = %s', (siren,))
+    cursor.execute('SELECT * FROM egapro WHERE siren = %s', (siren,))
     row = cursor.fetchone()  # Récupérer une ligne de résultats
 
     # Si des données sont trouvées pour ce SIREN, les retourner
