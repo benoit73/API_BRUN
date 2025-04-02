@@ -1,0 +1,59 @@
+services:
+  rest:
+    build: 
+      context: ./REST
+      dockerfile: Dockerfile
+    networks: 
+      - myNetwork
+
+  rpc:
+    build: 
+      context: ./RPC
+      dockerfile: Dockerfile
+    networks: 
+      - myNetwork
+
+  soap:
+    build: 
+      context: ./SOAP
+      dockerfile: Dockerfile
+    networks: 
+      - myNetwork
+
+  bdd:
+    image: postgres:latest
+    networks: 
+      - myNetwork
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: mydatabase
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  nginx: 
+    image: nginx:latest
+    networks: 
+      - myNetwork
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+  pgadmin:  
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 5050:80  # Interface disponible sur http://localhost:5050
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@root.root
+      PGADMIN_DEFAULT_PASSWORD: root
+    networks:
+      - myNetwork
+
+networks:
+  myNetwork:
+
+volumes:
+  postgres_data:
