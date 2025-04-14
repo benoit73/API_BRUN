@@ -47,7 +47,7 @@ soap_app = Application([EgaProService],
 soap_service = FlaskApplication(soap_app, app)
 
 # Ajouter le service SOAP à une route
-@app.route('/soap', methods=['POST'])
+@app.route('/', methods=['POST'])
 def soap():
     return soap_service()
 
