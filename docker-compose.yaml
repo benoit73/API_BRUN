@@ -40,7 +40,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./NGINX/nginx.conf:/etc/nginx/conf.d/default.conf
   pgadmin:  
     image: dpage/pgadmin4
     restart: always
