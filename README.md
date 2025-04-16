@@ -54,5 +54,5 @@ Ajoutez un serveur dans PgAdmin :
 
     Utilisateur : root
 
-    ### Routes disponibles
-    Les routes disponibles sont répertoriées dans les différents dossiers des API, dans les readme respectifs.
+### Routes disponibles
+Les routes disponibles sont répertoriées dans les différents dossiers des API, dans les readme respectifs.
