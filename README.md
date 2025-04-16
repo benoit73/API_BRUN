@@ -9,8 +9,8 @@ Ce projet contient un ensemble de services API (REST, RPC, SOAP) basés sur Flas
 - [Docker Compose](https://docs.docker.com/compose/)
 
 ### 🔧 Lancer les services
-
-docker-compose up --build
+docker-compose build --no-cache
+docker-compose up
 
 ### Les services suivants seront disponibles :
 Service	URL
@@ -53,3 +53,6 @@ Ajoutez un serveur dans PgAdmin :
     Port : 5432
 
     Utilisateur : root
+
+    ### Routes disponibles
+    Les routes disponibles sont répertoriées dans les différents dossiers des API, dans les readme respectifs.
