@@ -1,5 +1,5 @@
 FROM python:latest
-WORKDIR /api
+WORKDIR /api/RPC
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 RUN apt update && apt install -y git
